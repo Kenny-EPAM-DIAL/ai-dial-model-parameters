@@ -1,21 +1,18 @@
 from task.app.main import run
 
-# TODO:
-#  Try the `n` parameter with different models (`deployment_name`). With the parameter `n`, we can configure how many
-#       chat completion choices to generate for each input message
-#  User massage: Why is the snow white?
+"""
+Task 2: Demonstrate the `n` parameter.
 
-# Models to try:
-# - gpt-4o
-# - claude-3-7-sonnet@20250219
-# - gemini-2.5-pro
+The `n` parameter controls how many chat completion choices are generated
+for each input message. After starting the script, ask for example:
+
+User message: "Why is the snow white?"
+
+You can then compare the different choices returned in a single response.
+"""
 
 run(
-    # TODO:
-    #  1. Provide `deployment_name` with model from the list above👆
-    #  2. Use `n` parameter with value in range from 1 to 5!
+    deployment_name="gpt-4o",   # You can also try: "claude-3-7-sonnet@20250219", "gemini-2.5-pro"
+    print_only_content=False,   # Set to True if you want only the content printed
+    n=3,                        # Number of completion choices (1–5 as per task instructions)
 )
-
-# Pay attention to the number of choices in the response!
-# If you have worked with ChatGPT, you have probably seen responses where ChatGPT offers you a choice between two
-# responses to select which one you prefer. This is done with the `n` parameter.

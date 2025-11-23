@@ -1,21 +1,18 @@
 from task.app.main import run
 
-# TODO:
-#  Try the `seed` parameter:
-#       It allows us to reduce entropy by making the model's output more deterministic.
-#       There's no universally "best" seed - any integer works fine. Common approaches:
-#            - For testing: Use simple values like 42, 123, or 1000
-#       Default: None or random unless specified on the LLM side
-#  User massage: Name a random animal
+"""
+Task 4: Demonstrate the `seed` parameter.
+
+`seed` makes the model's output more deterministic for the same parameters.
+Combined with `n`, you can see that multiple choices tend to repeat.
+
+Suggested user message:
+"Name a random animal"
+"""
 
 run(
-    deployment_name='gpt-4o',
-    # TODO:
-    #  1. Use `seed` parameter with value 42 (or whatever you want)
-    #  2. Use `n` parameter with value 5
+    deployment_name="gpt-4o",
+    print_only_content=False,
+    seed=42,   # Any integer works; using 42 as a common example
+    n=5,       # Generate multiple choices to see the effect of the seed
 )
-
-# Check the content in choices. The expected result is that in almost all choices the result will be the same.
-# If you restart the app and retry, it should be mostly the same.
-# Also, try it without `seed` parameter.
-# For Anthropic and Gemini this parameter will be ignored
